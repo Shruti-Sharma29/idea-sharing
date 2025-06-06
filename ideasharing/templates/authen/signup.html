@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block home %}
+
+<div style="background-color: rgb(199, 197, 197); min-height: 700px;">
+    <form action="/register" method="post">
+{% csrf_token %}
+   <div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card p-4 shadow-sm" style="width: 100%; max-width: 600px;">
+      <h3 class="text-center mb-4">SIGN UP</h3>
+        <div class="mb-3">
+          <label class="form-label">Username</label>
+          <input type="text" name="uname" class="form-control"  placeholder="Enter username" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Full Name</label>
+          <input type="text" name="fname" class="form-control"  placeholder="Enter fullname" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Email address</label>
+          <input type="email" name="email" class="form-control"  placeholder="Enter email" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input type="password" name="pw" class="form-control" placeholder="Password" required>
+        </div>
+        <div class="d-grid mb-3">
+          <button type="submit" class="btn btn-primary">Sign Up</button>
+        </div>
+        <div class="text-center">
+          <a href="#">Forgot password?</a>
+        </div>
+    </div>
+  </div>
+
+</form>
+</div>
+
+{% endblock home %}

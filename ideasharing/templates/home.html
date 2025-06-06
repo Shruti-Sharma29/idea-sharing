@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block home %}
+<div class="card text-center">
+  <div class="card-header">
+    IDEA SHARING
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">The Inspiration Board</h5>
+    <p class="card-text">Hello! Welcome to the space where ideas come to life. We're excited to see what you'll share!
+    </p>
+    <a href="/share" class="btn btn-primary">Let's do it</a>
+  </div>
+  <div class="card-footer text-body-secondary">
+  </div>
+</div>
+
+<!-- contact us cards -->
+<div style="background-color: rgb(217, 222, 228); min-height: 900px;">
+    <div style="padding-left: 12%; padding-right: 12%; padding-top: 2%;">
+        <h2 style="text-align: center;">Brainwave Board</h2>
+
+        <div>
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+
+            {% for i in allData %}
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title">{{i.username}}</h5>
+                    <h5 class="card-title">{{i.full_name}}</h5>
+                    <h6 class="card-title">{{i.email_address}}</h6>
+                    <h6 class="card-title">{{i.idea}}</h6>
+                    <p class="card-text">{{i.descri_ption}}</p>
+
+                        <div style="display: flex; justify-content: space-evenly;">
+
+                            <form action="/delete-data/{{i.id}}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+
+                    </div>
+                
+                </div>
+            </div>
+
+        
+             {% endfor %}
+        
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock home %}
